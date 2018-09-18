@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 4200;
+const port = process.env.PORT || 4200;
 const hbs = require('hbs');
 const fs = require('fs');
 
@@ -23,10 +23,6 @@ app.use((req, res, next) => {
     });
     next();
 });
-
-// app.use((req, res, next) => {
-//     res.render('maintenance.hbs');
-// });
 
 app.get('/', (req, res) => {
     res.render("home", {
