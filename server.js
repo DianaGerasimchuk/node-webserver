@@ -24,6 +24,12 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/hello', (req, res) => {
+    res.status(404).send({
+        error: 'Hello world'
+    });
+});
+
 app.get('/', (req, res) => {
     res.render("home", {
         pageTitle: "Home title",
@@ -50,3 +56,5 @@ app.get("/errr", (req, res) => {
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 });
+
+module.exports.app = app;
